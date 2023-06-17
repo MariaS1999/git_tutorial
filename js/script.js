@@ -1,5 +1,17 @@
 "use strict";
 
-let age = Number(prompt("Введите возраст"));
+let userName = prompt("Введите имя");
+let password;
 
-alert(age >= 14 && age <= 90); 
+if (userName === "Админ") { 
+    password = prompt("Пароль");
+    password === "Я Главный" ?
+        alert("Здравствуйте") :
+        password === null ?
+            alert("Отменено") :
+            alert("Неверный пароль") 
+} else if (userName === null) {
+    alert("Отменено")
+} else {
+    alert("Я вас не знаю")
+}
