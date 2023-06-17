@@ -1,4 +1,5 @@
 "use strict";
 
-let name = prompt("What's your name?");
-alert("Welcome, " + name);
+let age = Number(prompt("Введите возраст"));
+
+alert(age >= 14 && age <= 90); 
