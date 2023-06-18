@@ -1,17 +1,10 @@
 "use strict";
 
-/* function checkAge(age) {
-  if (age > 18) {
-    return true;
-  } else {
-    return confirm('Родители разрешили?');
-  }
-} */
+let number1 = +prompt("number 1?");
+let number2 = +prompt("number 2?");
 
-let age = +prompt("age?");
-
-function checkAge(age) {
-  return age > 18 ? true : confirm('Родители разрешили?');
+function min(number1, number2) {
+  return number1 > number2 ? number2 : number1;
 }
 
-checkAge(age);
+alert(min(number1, number2));
