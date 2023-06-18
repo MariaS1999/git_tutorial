@@ -3,8 +3,12 @@
 let number1 = +prompt("number 1?");
 let number2 = +prompt("number 2?");
 
-function min(number1, number2) {
-  return number1 > number2 ? number2 : number1;
+function pow(number1, number2) {
+  let result = 1;
+  for(let i = 1; i <= number2; i++) {
+    result = result * number1;
+  }
+  return result;  
 }
 
-alert(min(number1, number2));
+alert(pow(number1, number2));
