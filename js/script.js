@@ -1,33 +1,17 @@
 "use strict";
 
-const number = +prompt('Введите число между 0 и 3', '');
-
-/* if (number === 0) {
-  alert('Вы ввели число 0');
-}
-
-if (number === 1) {
-  alert('Вы ввели число 1');
-}
-
-if (number === 2 || number === 3) {
-  alert('Вы ввели число 2, а может и 3');
+/* function checkAge(age) {
+  if (age > 18) {
+    return true;
+  } else {
+    return confirm('Родители разрешили?');
+  }
 } */
 
-switch (number) {
-  case 0:
-    alert('Вы ввели число 0');
-    break;
+let age = +prompt("age?");
 
-  case 1:
-    alert('Вы ввели число 1');
-    break;
-
-  case 2:
-  case 3:
-    alert('Вы ввели число 2, а может и 3');
-    break;
-
-  default:
-    break;
+function checkAge(age) {
+  return age > 18 ? true : confirm('Родители разрешили?');
 }
+
+checkAge(age);
