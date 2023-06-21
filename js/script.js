@@ -1,23 +1,8 @@
 "use strict";
 
-/* function ask(question, yes, no) {
-  if (confirm(question)) yes()
-  else no();
-}
-
-ask(
-  "Вы согласны?",
-  function() { alert("Вы согласились."); },
-  function() { alert("Вы отменили выполнение."); }
-); */
-
-let ask = (question, yes, no) => {
-  if (confirm(question)) yes()
-  else no();
-}
-
-ask(
-  "Вы согласны?",
-  () => alert("Вы согласились."),
-  () => alert("Вы отменили выполнение.")
-);
+let user = {};
+debugger;
+user.name = "John";
+user["surname"] = "Smith";
+user.name = "Pete";
+delete user.name;
