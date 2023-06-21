@@ -1,14 +1,23 @@
 "use strict";
 
-let number1 = +prompt("number 1?");
-let number2 = +prompt("number 2?");
-
-function pow(number1, number2) {
-  let result = 1;
-  for(let i = 1; i <= number2; i++) {
-    result = result * number1;
-  }
-  return result;  
+/* function ask(question, yes, no) {
+  if (confirm(question)) yes()
+  else no();
 }
 
-alert(pow(number1, number2));
+ask(
+  "Вы согласны?",
+  function() { alert("Вы согласились."); },
+  function() { alert("Вы отменили выполнение."); }
+); */
+
+let ask = (question, yes, no) => {
+  if (confirm(question)) yes()
+  else no();
+}
+
+ask(
+  "Вы согласны?",
+  () => alert("Вы согласились."),
+  () => alert("Вы отменили выполнение.")
+);
