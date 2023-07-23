@@ -1,43 +1,72 @@
 "use strict";
 
-let input = prompt('Number'); // 0 .. 999 245
-console.log(getObject(input));
-
-function checkType(str) {
-  if (Boolean(Number(str))) {
-    return Number(str);
-  } else {
-    alert("Вы ввели не число");
-  }
+let basket = {
+  product1: {
+    name: 'черная икра',
+    price: 100, // dollars
+    weigth: 100, // grams
+    img: 'lib/images/_.jpg', // path
+    desc: 'Икра осетровая',
+    count: 1,
+  },
+  product2: {
+    name: 'Хлеб',
+    price: 1, // dollars
+    weigth: 300, // grams
+    img: 'lib/images/_.jpg', // path
+    desc: 'Батон',
+    count: 2,
+  },
+  product3: {
+    name: 'Водка',
+    price: 5, // dollars
+    weigth: 1000, // grams
+    img: 'lib/images/_.jpg', // path
+    desc: 'Белуга',
+    count: 1,
+  },
 }
 
-function checkValue(num) {
-  if (checkType(num)) {
-    if ((num >= 0) && (num < 1000)) {
-      return num;
-    } else {
-      alert("Неверное число");
+function getBasketSum() {
+  let basketSum = 0;
+
+  for (let value in basket) {
+    basketSum += basket[value].price * basket[value].count;
+  }
+
+  return basketSum;
+}
+
+(function fillBasket() {
+  
+  let table = document.querySelector('.basket');
+  let tableHeader = document.createElement('tr');
+
+  for(let key in basket.product1) {
+    let tableHeaderColumn = document.createElement('th');
+    tableHeaderColumn.innerHTML = key;
+    tableHeader.append(tableHeaderColumn);
+  }
+
+  table.append(tableHeader);
+
+  for(let basketKey in basket) {
+    let product = basket[basketKey];
+    let tableRow = document.createElement('tr');
+    for(let key in product) {
+      let tableColumn = document.createElement('td');
+      tableColumn.innerHTML = product[key];
+      tableRow.append(tableColumn);
     }
+    table.append(tableRow);
   }
+
+  showBasketSum(table);
+})()
+
+function showBasketSum(table) {
+  table.insertAdjacentHTML("afterEnd", `<span>В корзине товаров на сумму: ${getBasketSum()}</span>`);
 }
 
-function getObject(num) {
-  let objectNum = {};
-  let rem, div, count = 1;
-  div = checkValue(num);
-  if (div) {
-    while (div != 0) {
-      rem = div % 10;
-      if (count === 1) {
-        objectNum["единиц"] = rem;
-      } else if (count === 2) {
-        objectNum["десятков"] = rem;
-      } else {
-        objectNum["сотен"] = rem;
-      }
-      div = Math.trunc(div / 10);
-      count++;
-    } 
-    return objectNum;
-  }
-}
+
+
